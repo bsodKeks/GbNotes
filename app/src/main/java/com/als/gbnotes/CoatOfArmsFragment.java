@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import java.util.List;
 
 public class CoatOfArmsFragment extends Fragment {
 
@@ -25,19 +30,45 @@ public class CoatOfArmsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle arguments = getArguments();
-        if (arguments != null){
-            int index = arguments.getInt(ARG_INDEX);
-            ImageView iv = view.findViewById(R.id.coast_of_arms_image_view);
-            TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-            iv.setImageResource(images.getResourceId(index, 0));
-            images.recycle();
+        if (arguments != null) {
+            City city = arguments.getParcelable(ARG_INDEX);
+            TextView tvCity = view.findViewById(R.id.coat_of_arms_text_view);
+            tvCity.setText(city.getCityName());
+
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.coat_of_arms_child_container, CoatOfArmsChildFragment.newInstance(city))
+                    .addToBackStack("hgjghj")
+                    .commit();
         }
+        Button btnBack = view.findViewById(R.id.coat_of_arms_button_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+
+        Button btnRemove = view.findViewById(R.id.coat_of_arms_button_remove);
+        btnRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FragmentManager fm = requireActivity().getSupportFragmentManager();
+                final List<Fragment> fragments = fm.getFragments();
+                for (Fragment fragment : fragments) {
+                    if (fragment instanceof CoatOfArmsFragment && fragment.isVisible()) {
+                        fm.beginTransaction()
+                                .remove(fragment)
+                                .commit();
+                    }
+                }
+            }
+        });
     }
 
-    public static CoatOfArmsFragment newInstance(int index) {
+    public static CoatOfArmsFragment newInstance(City city) {
         CoatOfArmsFragment fragment = new CoatOfArmsFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_INDEX, index);
+        args.putParcelable(ARG_INDEX, city);
         fragment.setArguments(args);
         return fragment;
     }
