@@ -1,12 +1,15 @@
 package com.als.gbnotes;
 
+import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,12 +34,12 @@ public class CoatOfArmsChildFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
         Bundle arguments = getArguments();
+        ImageView iv = view.findViewById(R.id.coat_of_arms_image_view);
         if (arguments != null) {
             City city = arguments.getParcelable(ARG_INDEX_CHILD);
             TypedArray images =
                     getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-            ((ImageView)
-                    view.findViewById(R.id.coat_of_arms_image_view)).setImageResource(images.getResourceId(city.getImageIndex(), 0));
+            iv.setImageResource(images.getResourceId(city.getImageIndex(), 0));
             images.recycle();
         }
         Button btn = view.findViewById(R.id.coat_of_arms_child_button_back);
@@ -46,7 +49,36 @@ public class CoatOfArmsChildFragment extends Fragment {
                 getParentFragmentManager().popBackStack();
             }
         });
+        initPopup(iv);
     }
+
+    private void initPopup(ImageView imageView) {
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Activity activity = requireActivity();
+                PopupMenu popupMenu = new PopupMenu(activity, view);
+                activity.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.action_popup_clear:
+                                imageView.setImageAlpha(0);
+                                return true;
+                            case R.id.action_popup_exit:
+                                activity.finish();
+                                return true;
+                        }
+                        return true;
+                    }
+                });
+                popupMenu.show();
+                return true;
+            }
+        });
+    }
+
     public static CoatOfArmsChildFragment newInstance(City city) {
         CoatOfArmsChildFragment fragment = new CoatOfArmsChildFragment();
         Bundle args = new Bundle();

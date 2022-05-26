@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">GbNotes</string>
+    <string name="app_name">Города</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_about">О приложении</string>
+    <string name="menu_exit">Выход</string>
+    <string name="dsc_about">Приложение разрабатывается в рамках курса GB, Android введение в платформу</string>
+    <string name="menu_edit">изменить</string>
+    <string name="about">об этом</string>
+    <string name="exit">выйти</string>
+    <string name="drawer_header">header</string>
+    <string name="navigation_drawer_open">opened</string>
+    <string name="navigation_drawer_close">closed</string>
+    <string name="clear">очистить</string>
 </resources>
