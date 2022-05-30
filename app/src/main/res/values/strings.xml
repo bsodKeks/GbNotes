@@ -11,4 +11,7 @@
     <string name="navigation_drawer_open">opened</string>
     <string name="navigation_drawer_close">closed</string>
     <string name="clear">очистить</string>
+    <string name="longText">Как было сказано выше, снэкбару можно присвоить какое-то действие. Для этого к существующим
+аргументам нужно добавить название кнопки и слушатель нажатия:
+</string>
 </resources>

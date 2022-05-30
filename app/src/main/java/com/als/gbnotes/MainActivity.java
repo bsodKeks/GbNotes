@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.als.gbnotes.alerts.AlertsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         CitiesFragment citiesFragment = new CitiesFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, citiesFragment)
+                .replace(R.id.fragment_container, new AlertsFragment())
                 .commit();
     }
 

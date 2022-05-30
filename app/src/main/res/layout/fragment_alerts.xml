@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/container_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_toast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Toast" />
+
+        <Button
+            android:id="@+id/button_toast_short"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Toast" />
+
+        <Button
+            android:id="@+id/button_snack_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="SnackBar" />
+
+        <Button
+            android:id="@+id/button_snack_bar_with_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="SnackBar with action" />
+
+        <Button
+            android:id="@+id/button_alert_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Alert Dialog" />
+
+        <Button
+            android:id="@+id/button_alert_dialog_with_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Alert Dialog with custom view" />
+
+        <Button
+            android:id="@+id/button_dialog_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Dialog Fragment" />
+
+        <Button
+            android:id="@+id/button_dialog_fragment_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Dialog Fragment with custom view"
+            />
+
+        <Button
+            android:id="@+id/button_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Notification"
+            />
+
+        <Button
+            android:id="@+id/alert_dialog_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Диалог со списком" />
+
+        <Button
+            android:id="@+id/alert_dialog_list_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Диалог в одним выбором" />
+        <Button
+            android:id="@+id/alert_dialog_list_multi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Диалог с мультивыбором" />
+
+
+    </LinearLayout>
+</ScrollView>
