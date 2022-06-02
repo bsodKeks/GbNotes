@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/drawable/button_shape.xml" value="0.1325" />
+        <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/drawable/separator.xml" value="0.133" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout-land/activity_main.xml" value="0.165625" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/activity_main.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/dialog_custom.xml" value="0.21822916666666667" />
@@ -14,6 +15,8 @@
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/fragment_cities.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/fragment_coat_of_arms.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/fragment_toast.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/item_city.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/item_city_grid.xml" value="0.264" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/layout/tst.xml" value="0.536" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/menu/menu_drawer.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/alkor/AndroidStudioProjects/GbNotes/app/src/main/res/menu/menu_fragment.xml" value="0.21927083333333333" />

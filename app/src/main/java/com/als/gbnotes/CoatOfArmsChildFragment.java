@@ -37,10 +37,7 @@ public class CoatOfArmsChildFragment extends Fragment {
         ImageView iv = view.findViewById(R.id.coat_of_arms_image_view);
         if (arguments != null) {
             City city = arguments.getParcelable(ARG_INDEX_CHILD);
-            TypedArray images =
-                    getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
-            iv.setImageResource(images.getResourceId(city.getImageIndex(), 0));
-            images.recycle();
+            iv.setImageResource(city.getImageIndex());
         }
         Button btn = view.findViewById(R.id.coat_of_arms_child_button_back);
         btn.setOnClickListener(new View.OnClickListener() {
