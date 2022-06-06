@@ -42,7 +42,9 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder holder, int position) {
         holder.getItemView().<TextView>findViewById(R.id.textView).setText(list.get(position).getCityName());
-        holder.getItemView().<ImageView>findViewById(R.id.imageView).setImageResource(list.get(position).getImageIndex());
+        if (list.get(position).getImageIndex() != -1) {
+            holder.getItemView().<ImageView>findViewById(R.id.imageView).setImageResource(list.get(position).getImageIndex());
+        }
     }
 
     @Override
@@ -69,6 +71,13 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
                 @Override
                 public void onClick(View view) {
                     listener.onTextViewClick(getAdapterPosition());
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    listener.onLongItemClick(view, getAdapterPosition());
+                    return true;
                 }
             });
         }

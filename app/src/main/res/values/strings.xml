@@ -14,4 +14,8 @@
     <string name="longText">Как было сказано выше, снэкбару можно присвоить какое-то действие. Для этого к существующим
 аргументам нужно добавить название кнопки и слушатель нажатия:
 </string>
+    <string name="add">Добавить</string>
+    <string name="update">обновить</string>
+    <string name="delete">удалить</string>
+    <string name="date">дата</string>
 </resources>

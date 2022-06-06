@@ -9,19 +9,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CoatOfArmsFragment extends Fragment {
 
     static private String ARG_INDEX = "index";
+    private DatePicker datePicker;
 
     @Nullable
     @Override
@@ -52,11 +58,17 @@ public class CoatOfArmsFragment extends Fragment {
                     .addToBackStack("hgjghj")
                     .commit();
         }
+        datePicker = view.findViewById(R.id.datePicker);
         Button btnBack = view.findViewById(R.id.coat_of_arms_button_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requireActivity().getSupportFragmentManager().popBackStack();
+                //requireActivity().getSupportFragmentManager().popBackStack();
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.YEAR, datePicker.getYear());
+                calendar.set(Calendar.MONTH, datePicker.getMonth());
+                calendar.set(Calendar.DAY_OF_MONTH, datePicker.getDayOfMonth());
+                Toast.makeText(requireContext(), getDateFromCalendar(calendar), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -75,6 +87,12 @@ public class CoatOfArmsFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private String getDateFromCalendar(Calendar cal){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMMM/yyyy");
+        Date date = cal.getTime();
+        return dateFormat.format(date);
     }
 
     public static CoatOfArmsFragment newInstance(City city) {

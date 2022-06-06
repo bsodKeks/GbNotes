@@ -18,6 +18,7 @@ public class City implements Parcelable {
         cityName = in.readString();
     }
 
+
     public static final Creator<City> CREATOR = new Creator<City>() {
         @Override
         public City createFromParcel(Parcel in) {

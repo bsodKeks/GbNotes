@@ -1,4 +1,4 @@
-package com.als.gbnotes;
+package com.als.gbnotes.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,12 +11,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.als.gbnotes.AboutFragment;
+import com.als.gbnotes.R;
 import com.als.gbnotes.cities.CitiesFragment;
+import com.als.gbnotes.cities.DataSource;
+import com.als.gbnotes.cities.IDataSource;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IDataSourceHandler {
+    private IDataSource dataSource = new DataSource();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    @Override
+    public IDataSource getDataSource() {
+        return dataSource;
     }
 }
